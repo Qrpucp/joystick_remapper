@@ -112,8 +112,8 @@ def check_remapped(name):
 if __name__ == "__main__":
     try:
         rospy.init_node('joystick_remapper', log_level=rospy.DEBUG)
-        button_mapping = get_param_list('~button_mapping')
-        axis_mapping = get_param_list('~axis_mapping')
+        button_mapping = list(get_param_list('~button_mapping'))
+        axis_mapping = list(get_param_list('~axis_mapping'))
         Remapper(button_mapping, axis_mapping)
         while not rospy.is_shutdown():
             rospy.sleep(1)
